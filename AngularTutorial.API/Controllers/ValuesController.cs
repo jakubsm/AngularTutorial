@@ -21,6 +21,7 @@ namespace AngularTutorialAPI.Controllers
         }
 
         // GET api/values
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -33,6 +34,7 @@ namespace AngularTutorialAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValues(int id)
         {
+             
             var value = await _context.Values.FindAsync(id);
 
             return Ok(value);
